@@ -5,7 +5,7 @@
 这份 CMake 教程手把手教你用 Cmake 解决一些常见的构建问题。观察不同的主题融合在一个项目中是很有帮助的，
 这份教程文件和源代码可以在源代码中的 Help/guide/tutorial 目录找到，每一步都有对应的子目录，其中包含了源代码，可以以这些子目录作为起点。教程样例是连续的，因此每一步都是上一步的完整解决方案。
 
-## 最初起点(Step 1)
+## 开始(Step 1)
 
 大部分的项目都是从源文件中构建可执行文件，对于一个简单的项目，有三行代码是必备的，这将作为我们的教程的起点，现在目录 Step1目录下创建一个
 CMakeLists.txt 文件
@@ -55,3 +55,12 @@ target_include_directories(Tutorial PUBLIC "${PROJECT_BINARY_DIR}")
 ### 指明 C++ 标准
 
 下一步，让我们使用一些 C++11 标准,使用 `std::stod` 代替 `atof` ，于此同时移除 `#include <cstdlib>`
+
+```c++
+const double inputValue = std::stod(argv[1])
+```
+
+```cmake
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+```
